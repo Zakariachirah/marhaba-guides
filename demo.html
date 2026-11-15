@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dar Safi Demo — Guest Guidebook by Marhaba Guides</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--terracotta:#C2552D;--sand:#F3E9DC;--blue:#1F4E79;--ink:#2B2B2B;--muted:#6B6259;--white:#FFFDF9;--line:#E2D4C1}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Inter,system-ui,sans-serif;background:#E9E1D6;color:var(--ink);line-height:1.55}
+  .demo-bar{background:var(--ink);color:#F3E9DC;font-size:13px;text-align:center;padding:10px 14px}
+  .demo-bar a{color:#fff;font-weight:600}
+  .app{max-width:480px;margin:0 auto;background:var(--white);min-height:100vh;box-shadow:0 0 40px rgba(0,0,0,.08)}
+  .top{background:var(--blue);color:#fff;padding:34px 24px 28px;position:relative}
+  .top small{font-size:12px;letter-spacing:.12em;text-transform:uppercase;opacity:.75}
+  .top h1{font-family:"Playfair Display",serif;font-size:32px;margin:4px 0 6px}
+  .top p{opacity:.85;font-size:15px}
+  .lang{position:absolute;top:16px;right:16px;display:flex;gap:4px;background:rgba(255,255,255,.12);border-radius:20px;padding:3px}
+  .lang button{border:0;background:transparent;color:#fff;font:600 12px Inter,sans-serif;padding:5px 10px;border-radius:16px;cursor:pointer}
+  .lang button.on{background:#fff;color:var(--blue)}
+  .host{display:flex;gap:12px;align-items:center;margin-top:18px;background:rgba(255,255,255,.1);border-radius:12px;padding:12px}
+  .avatar{width:42px;height:42px;border-radius:50%;background:var(--terracotta);display:flex;align-items:center;justify-content:center;font-weight:700}
+  .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:18px}
+  .tile{background:var(--sand);border:0;border-radius:14px;padding:16px 6px;font:600 13px Inter,sans-serif;color:var(--ink);cursor:pointer;text-align:center}
+  .tile span{display:block;font-size:24px;margin-bottom:6px}
+  .tile:hover{background:#EADBC8}
+  .sec{padding:8px 22px 26px;border-top:1px solid var(--line)}
+  .sec h2{font-family:"Playfair Display",serif;font-size:24px;margin:20px 0 12px;display:flex;align-items:center;gap:10px}
+  .sec p,.sec li{font-size:15.5px}
+  .sec ul,.sec ol{padding-left:20px}
+  .sec li{margin-bottom:6px}
+  .box{background:var(--sand);border-radius:12px;padding:14px 16px;margin:12px 0}
+  .key{background:#fff;border:1.5px dashed var(--terracotta);border-radius:12px;padding:14px 16px;margin:12px 0}
+  .key small{display:block;color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.08em}
+  .key b{font-size:20px;color:var(--terracotta)}
+  .copy{float:right;border:1px solid var(--terracotta);background:#fff;color:var(--terracotta);border-radius:8px;font:600 12px Inter;padding:6px 10px;cursor:pointer}
+  .place{border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:10px 0}
+  .place b{display:block}
+  .place span{color:var(--muted);font-size:14px}
+  .tag{display:inline-block;font-size:11px;background:var(--blue);color:#fff;border-radius:10px;padding:2px 8px;margin-left:6px;vertical-align:middle}
+  .sos{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .sos a{display:block;text-align:center;background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;text-decoration:none;color:var(--ink);font-weight:600}
+  .sos a b{display:block;font-size:22px;color:var(--terracotta)}
+  .note{font-size:13px;color:var(--muted);font-style:italic}
+  footer{padding:26px 22px 40px;text-align:center;font-size:13px;color:var(--muted);border-top:1px solid var(--line)}
+  footer a{color:var(--blue);font-weight:600}
+  [data-l]{display:none} body.en [data-l="en"],body.fr [data-l="fr"]{display:revert}
+</style>
+</head>
+<body class="en">
+
+<div class="demo-bar">
+  <span data-l="en">This is a <b>demo guidebook</b> for a fictional property, made by Marhaba Guides. <a href="index.html">Get one for your rental →</a></span>
+  <span data-l="fr">Ceci est un <b>guide de démonstration</b> pour un logement fictif, réalisé par Marhaba Guides. <a href="index.html">Obtenir le vôtre →</a></span>
+</div>
+
+<div class="app">
+  <div class="top">
+    <div class="lang"><button class="on" onclick="setLang('en',this)">EN</button><button onclick="setLang('fr',this)">FR</button></div>
+    <small data-l="en">Welcome to</small><small data-l="fr">Bienvenue à</small>
+    <h1>Dar Safi</h1>
+    <p data-l="en">A quiet riad by the old medina of Safi, Morocco.</p>
+    <p data-l="fr">Un riad paisible près de l’ancienne médina de Safi, au Maroc.</p>
+    <div class="host"><div class="avatar">Y</div><div><b>Youssef</b> · <span data-l="en">your host</span><span data-l="fr">votre hôte</span><br><small style="opacity:.8;text-transform:none;letter-spacing:0" data-l="en">Message me anytime between 8am and 10pm.</small><small style="opacity:.8;text-transform:none;letter-spacing:0" data-l="fr">Écrivez-moi entre 8 h et 22 h.</small></div></div>
+  </div>
+
+  <div class="tiles">
+    <button class="tile" onclick="go('arrival')"><span>🔑</span><b data-l="en">Arrival</b><b data-l="fr">Arrivée</b></button>
+    <button class="tile" onclick="go('wifi')"><span>📶</span>Wi-Fi</button>
+    <button class="tile" onclick="go('rules')"><span>🏠</span><b data-l="en">House rules</b><b data-l="fr">Règles</b></button>
+    <button class="tile" onclick="go('home')"><span>☕</span><b data-l="en">The house</b><b data-l="fr">La maison</b></button>
+    <button class="tile" onclick="go('local')"><span>📍</span><b data-l="en">Local tips</b><b data-l="fr">Bons plans</b></button>
+    <button class="tile" onclick="go('checkout')"><span>🧳</span><b data-l="en">Checkout</b><b data-l="fr">Départ</b></button>
+  </div>
+
+  <div class="sec" id="arrival">
+    <h2>🔑 <span data-l="en">Arrival</span><span data-l="fr">Arrivée</span></h2>
+    <div data-l="en">
+      <p><b>Check-in:</b> from 3:00 pm. Early arrival? Message us — luggage drop-off is free from 11:00 am.</p>
+      <ol style="margin-top:10px">
+        <li>Taxis can’t enter the medina lanes. Ask to stop at the main gate; it’s a 4-minute walk.</li>
+        <li>Follow the blue doors on your left, then take the second alley on the right.</li>
+        <li>Our door is the green one with a brass hand of Fatima. Ring the bell — someone will always welcome you.</li>
+      </ol>
+      <div class="box">🚗 <b>Parking:</b> guarded public parking at the main gate, about 20 MAD per night.</div>
+    </div>
+    <div data-l="fr">
+      <p><b>Arrivée :</b> à partir de 15 h. Vous arrivez plus tôt ? Écrivez-nous : la consigne à bagages est gratuite dès 11 h.</p>
+      <ol style="margin-top:10px">
+        <li>Les taxis n’entrent pas dans les ruelles de la médina. Demandez à vous arrêter à la porte principale, à 4 minutes à pied.</li>
+        <li>Suivez les portes bleues sur votre gauche, puis prenez la deuxième ruelle à droite.</li>
+        <li>Notre porte est verte, avec une main de Fatma en laiton. Sonnez : quelqu’un vous accueillera toujours.</li>
+      </ol>
+      <div class="box">🚗 <b>Parking :</b> parking public gardé à la porte principale, environ 20 MAD la nuit.</div>
+    </div>
+  </div>
+
+  <div class="sec" id="wifi">
+    <h2>📶 Wi-Fi</h2>
+    <div class="key"><button class="copy" onclick="copyPw(this)">Copy</button><small>Network</small><b style="color:var(--ink);font-size:17px">DarSafi_Guest</b><small style="margin-top:8px" data-l="en">Password</small><small style="margin-top:8px" data-l="fr">Mot de passe</small><b id="pw">marhaba2026</b></div>
+    <p class="note" data-l="en">Best signal in the patio and the rooftop lounge.</p>
+    <p class="note" data-l="fr">Meilleur signal dans le patio et sur la terrasse.</p>
+  </div>
+
+  <div class="sec" id="rules">
+    <h2>🏠 <span data-l="en">House rules</span><span data-l="fr">Règles de la maison</span></h2>
+    <ul data-l="en">
+      <li>Quiet hours from 10:30 pm to 8:00 am — sound carries in the patio.</li>
+      <li>No smoking inside; the rooftop is yours for that.</li>
+      <li>Please don’t flush paper or wipes: use the small bin.</li>
+      <li>Visitors are welcome until 9:00 pm.</li>
+    </ul>
+    <ul data-l="fr">
+      <li>Calme de 22 h 30 à 8 h : le son porte dans le patio.</li>
+      <li>Interdiction de fumer à l’intérieur ; la terrasse est à vous pour cela.</li>
+      <li>Merci de ne pas jeter de papier ni de lingettes dans les toilettes : utilisez la petite poubelle.</li>
+      <li>Les visiteurs sont les bienvenus jusqu’à 21 h.</li>
+    </ul>
+  </div>
+
+  <div class="sec" id="home">
+    <h2>☕ <span data-l="en">The house</span><span data-l="fr">La maison</span></h2>
+    <div data-l="en">
+      <div class="box"><b>Hot water:</b> the boiler is solar-assisted. If the water is cold in the morning, switch on the white button next to the kitchen door and wait 20 minutes.</div>
+      <div class="box"><b>Air conditioning:</b> remote in the bedside drawer. Please switch it off when you go out.</div>
+      <div class="box"><b>Breakfast:</b> served on the rooftop from 8:00 to 10:30 am. Tell us the evening before if you’d like it earlier.</div>
+      <div class="box"><b>Mint tea:</b> help yourself in the kitchen anytime.</div>
+    </div>
+    <div data-l="fr">
+      <div class="box"><b>Eau chaude :</b> le chauffe-eau est solaire. Si l’eau est froide le matin, appuyez sur le bouton blanc près de la porte de la cuisine et attendez 20 minutes.</div>
+      <div class="box"><b>Climatisation :</b> télécommande dans le tiroir de la table de nuit. Merci de l’éteindre quand vous sortez.</div>
+      <div class="box"><b>Petit-déjeuner :</b> servi sur la terrasse de 8 h à 10 h 30. Prévenez-nous la veille si vous le souhaitez plus tôt.</div>
+      <div class="box"><b>Thé à la menthe :</b> servez-vous en cuisine à tout moment.</div>
+    </div>
+  </div>
+
+  <div class="sec" id="local">
+    <h2>📍 <span data-l="en">Local tips</span><span data-l="fr">Bons plans</span></h2>
+    <p class="note" data-l="en">In your own guidebook, this page is built only from your personal recommendations.</p>
+    <p class="note" data-l="fr">Dans votre guide, cette page est construite uniquement à partir de vos recommandations.</p>
+    <div class="place"><b>Potters’ Hill <span class="tag" data-l="en">Must see</span><span class="tag" data-l="fr">Incontournable</span></b><span data-l="en">Safi’s pottery quarter: watch artisans at the wheel and the kilns. Go in the morning.</span><span data-l="fr">Le quartier des potiers de Safi : artisans au tour et fours traditionnels. Allez-y le matin.</span></div>
+    <div class="place"><b>Ksar el Bahr</b><span data-l="en">The Portuguese sea fortress on the ocean front. Best light at sunset.</span><span data-l="fr">La forteresse portugaise face à l’océan. Plus belle lumière au coucher du soleil.</span></div>
+    <div class="place"><b>National Ceramics Museum</b><span data-l="en">Housed in the old Kechla fortress above the medina.</span><span data-l="fr">Installé dans l’ancienne forteresse de la Kechla, au-dessus de la médina.</span></div>
+    <div class="place"><b data-l="en">Fresh sardines at the port</b><b data-l="fr">Sardines fraîches au port</b><span data-l="en">Safi is a sardine capital. Ask your host for today’s favorite grill.</span><span data-l="fr">Safi est une capitale de la sardine. Demandez à votre hôte son grill préféré du moment.</span></div>
+  </div>
+
+  <div class="sec" id="checkout">
+    <h2>🧳 <span data-l="en">Checkout</span><span data-l="fr">Départ</span></h2>
+    <div data-l="en">
+      <p><b>Checkout:</b> before 11:00 am. Need a late checkout? Ask us the day before.</p>
+      <ul style="margin-top:10px">
+        <li>Leave the keys on the kitchen table.</li>
+        <li>Switch off the air conditioning and lights.</li>
+        <li>No need to strip the beds or do the dishes.</li>
+      </ul>
+      <div class="box">🚕 Need a taxi to the station or Marrakech? We can book a trusted driver for you.</div>
+    </div>
+    <div data-l="fr">
+      <p><b>Départ :</b> avant 11 h. Besoin de partir plus tard ? Demandez-le-nous la veille.</p>
+      <ul style="margin-top:10px">
+        <li>Laissez les clés sur la table de la cuisine.</li>
+        <li>Éteignez la climatisation et les lumières.</li>
+        <li>Inutile de défaire les lits ou de faire la vaisselle.</li>
+      </ul>
+      <div class="box">🚕 Besoin d’un taxi pour la gare ou Marrakech ? Nous pouvons réserver un chauffeur de confiance.</div>
+    </div>
+  </div>
+
+  <div class="sec" id="sos">
+    <h2>🆘 <span data-l="en">Emergencies</span><span data-l="fr">Urgences</span></h2>
+    <div class="sos">
+      <a href="tel:19"><b>19</b><span data-l="en">Police (city)</span><span data-l="fr">Police (ville)</span></a>
+      <a href="tel:15"><b>15</b><span data-l="en">Ambulance & fire</span><span data-l="fr">Ambulance et pompiers</span></a>
+    </div>
+    <p class="note" style="margin-top:10px" data-l="en">For anything else, message your host first — we’re a few minutes away.</p>
+    <p class="note" style="margin-top:10px" data-l="fr">Pour tout le reste, écrivez d’abord à votre hôte : nous sommes à quelques minutes.</p>
+  </div>
+
+  <footer>
+    <span data-l="en">Guidebook made by</span><span data-l="fr">Guide réalisé par</span> <a href="index.html">Marhaba Guides</a><br>
+    <span data-l="en">Dar Safi and its host are fictional, for demonstration only.</span><span data-l="fr">Dar Safi et son hôte sont fictifs, pour la démonstration uniquement.</span>
+  </footer>
+</div>
+
+<script>
+  function setLang(l,btn){document.body.className=l;document.querySelectorAll('.lang button').forEach(b=>b.classList.remove('on'));btn.classList.add('on');document.documentElement.lang=l}
+  function go(id){document.getElementById(id).scrollIntoView({behavior:'smooth'})}
+  function copyPw(b){try{navigator.clipboard.writeText(document.getElementById('pw').textContent);b.textContent='Copied ✓';setTimeout(()=>b.textContent='Copy',1500)}catch(e){}}
+</script>
+</body>
+</html>
